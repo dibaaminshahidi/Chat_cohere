@@ -8,7 +8,9 @@ class App:
         st.markdown(f"""
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500&display=swap');
-                * {{font-family: 'Vazirmatn', sans-serif;}}
+                * {{font-family: 'Vazirmatn', sans-serif;
+                    direction: right;
+                    text-align: rtl;}}
             </style>
         """, unsafe_allow_html=True)
 
