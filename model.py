@@ -34,7 +34,7 @@ class LLM_Chat:
     def process_input(self, prompt):
         config = {"configurable": {"session_id": "any"}}
         try:
-            response = self.chain_with_message_history.invoke({"input": prompt}, config)
-            return response.content
+            response = self.chain_with_message_history.stream({"input": prompt}, config)
+            return response
         except Exception as error:
             return str(error)

@@ -13,10 +13,14 @@ class App:
             st.stop()
         return api_key
 
+
     def display_chat(self, chat_history):
         if len(chat_history) == 0 or st.sidebar.button("Reset chat history"):
-            return True  # Reset trigger
+            return True 
+        
         for msg in chat_history:
+            if msg.type == 'AIMessageChunk':
+                msg.type = 'ai'
             st.chat_message(msg.type).write(msg.content)
         return False
 
@@ -24,7 +28,11 @@ class App:
         return st.chat_input()
 
     def display_message(self, message_type, content):
-        st.chat_message(message_type).write(content)
+        if message_type == "human":
+            st.chat_message(message_type).write(content)
+        else:
+            with st.chat_message("ai"):
+                st.write_stream(content)
 
     def display_app(self):
         api_key = self.display_sidebar()
