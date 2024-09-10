@@ -3,7 +3,7 @@ from model import LLM_Chat
 
 class App:
     def __init__(self):
-        st.set_page_config(page_title="Langchain: Chat With Cohere", page_icon="🦜")
+        st.set_page_config(page_title="Langchain: Chat With Cohere", page_icon= "content/logo.png")
         st.title("🦜 Langchain: Chat With Cohere")
         st.markdown(f"""
             <style>
